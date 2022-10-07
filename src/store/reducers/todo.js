@@ -42,9 +42,7 @@ export default function todoReducer(state = initialState, action) {
 		case DELETE_TODO: {
 			const {id} = action.payload
 
-			const index = state.allIds.indexOf(id)
-			state.allIds.splice(index, 1)
-			const allIdsWithoutTarget = state.allIds
+			const allIdsWithoutTarget = state.allIds.filter((el) => el !== id)
 
 			delete state.byIds[id]
 
